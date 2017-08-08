@@ -12,16 +12,15 @@ var getElementsByClassName = function(className
     return getElementsByClassName.call(document.body, className);
   }
 
-  if ($(this).hasClass(className)) {
+  if (this.classList !== undefined && this.classList.contains(className)) {
     matchingElements.push(this); 
   }
 
-  // need to retool using element.childNodes and element.classList
-  if( this.children.length > 0)
+  if( this.childNodes.length > 0)
   {
-    for(let i = 0; i < this.children.length; i++)
+    for(let i = 0; i < this.childNodes.length; i++)
     {
-      matchingElements = matchingElements.concat( getElementsByClassName.call(this.children[i], className) );
+      matchingElements = matchingElements.concat( getElementsByClassName.call(this.childNodes[i], className) );
     }
   }
 
