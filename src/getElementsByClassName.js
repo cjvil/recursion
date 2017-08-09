@@ -4,8 +4,7 @@
 // };
 
 // But instead we're going to implement it from scratch:
-var getElementsByClassName = function(className
-) {
+var getElementsByClassName = function(className) {
   var matchingElements = [];
 
   if (this === window) {
@@ -16,10 +15,8 @@ var getElementsByClassName = function(className
     matchingElements.push(this); 
   }
 
-  if( this.childNodes.length > 0)
-  {
-    for(let i = 0; i < this.childNodes.length; i++)
-    {
+  if (this.childNodes.length > 0) {
+    for(let i = 0; i < this.childNodes.length; i++) {
       matchingElements = matchingElements.concat( getElementsByClassName.call(this.childNodes[i], className) );
     }
   }
